@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f1">
+  <meta name="description" content="Hôm nay ăn gì? Tạo thực đơn miền Bắc ngẫu nhiên, cân đối nhóm thực phẩm, khóa món yêu thích và đổi những món còn lại.">
+  <meta property="og:title" content="Hôm Nay Ăn Gì? — Gợi ý mâm cơm miền Bắc">
+  <meta property="og:description" content="Hàng trăm món Bắc, bốn kiểu bữa ăn và cách chọn thực đơn thông minh ngay trên trình duyệt.">
+  <meta property="og:type" content="website">
+  <title>Hôm Nay Ăn Gì? — Gợi ý thực đơn miền Bắc</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="site-header container">
+    <a class="brand" href="#dau-trang" aria-label="Hôm Nay Ăn Gì? - về đầu trang">
+      <span class="brand-symbol" aria-hidden="true">🍲</span>
+      <span class="brand-copy"><strong>Hôm Nay Ăn Gì<span class="brand-dot">?</span></strong><small>Hương vị bữa cơm Bắc</small></span>
+    </a>
+    <nav class="header-actions" aria-label="Điều hướng chính">
+      <button id="explore-button" class="nav-button" type="button">Khám phá món <span aria-hidden="true">↗</span></button>
+      <button id="favorites-button" class="nav-icon" type="button" aria-label="Thực đơn yêu thích" title="Yêu thích">♡</button>
+      <button id="history-button" class="nav-icon" type="button" aria-label="Lịch sử thực đơn" title="Lịch sử">◷</button>
+      <button id="theme-button" class="nav-icon theme-button" type="button" aria-label="Chuyển sáng/tối" title="Chế độ tối">☾</button>
+    </nav>
+  </header>
+
+  <main id="dau-trang" class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="eyebrow-star">✦</span> BỮA CƠM NGON, CHUYỆN NHỎ THÔI</div>
+        <h1 id="hero-title">Hôm nay<br><em>ăn gì nhỉ?</em></h1>
+        <p>Để chúng mình chọn giúp bạn một mâm cơm thật vừa ý. Món Bắc thân quen, kết hợp hợp lý, mỗi ngày một cảm hứng mới.</p>
+        <div class="hero-points"><span>✓ Món Bắc phong phú</span><span>✓ Đổi món trong một chạm</span></div>
+        <a class="hero-link" href="#tao-thuc-don">Bắt đầu chọn món <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="dish-orbit orbit-a"><span>🥢</span></div>
+        <div class="dish-orbit orbit-b"><span>🌶️</span></div>
+        <div class="dish-orbit orbit-c"><span>🌿</span></div>
+        <div class="hero-plate">
+          <span class="plate-shadow"></span>
+          <span class="plate-inside">🍚<i class="plate-leaf">🥬</i><i class="plate-meat">🍗</i><i class="plate-soup">🥕</i></span>
+        </div>
+        <div class="art-sticker">Cơm nhà <span>là nhất!</span> ✨</div>
+      </div>
+    </section>
+
+    <section class="workspace" id="tao-thuc-don" aria-label="Tạo thực đơn">
+      <aside class="options-panel surface">
+        <div class="section-kicker">01 / CHỌN KHẨU VỊ</div>
+        <h2>Bữa này mình <span class="accent-text">ăn kiểu gì?</span></h2>
+        <p class="section-intro">Chọn một kiểu bữa, phần còn lại để tụi mình lo.</p>
+        <div id="meal-modes" class="mode-grid" role="group" aria-label="Loại bữa ăn">
+          <button type="button" class="mode-card selected" data-mode="family" aria-pressed="true"><span class="mode-emoji">🍚</span><strong>Cơm bình dân</strong><small>Ấm áp mỗi ngày</small></button>
+          <button type="button" class="mode-card" data-mode="special" aria-pressed="false"><span class="mode-emoji">✨</span><strong>Bữa cải thiện</strong><small>Ngon thêm một chút</small></button>
+          <button type="button" class="mode-card" data-mode="nhau" aria-pressed="false"><span class="mode-emoji">🥢</span><strong>Bữa ăn nhậu</strong><small>Vui cùng bạn bè</small></button>
+          <button type="button" class="mode-card" data-mode="quick" aria-pressed="false"><span class="mode-emoji">⚡</span><strong>Bữa ăn nhanh</strong><small>Gọn mà vẫn ngon</small></button>
+        </div>
+
+        <div id="special-wrap" class="field hidden"><label for="special-type">Kiểu bữa cải thiện</label><select id="special-type"><option value="random">Bất ngờ cho tôi</option><option value="feast">Mâm cơm thịnh soạn</option><option value="hotpot">Bữa lẩu</option><option value="barbecue">Bữa nướng</option><option value="delicacy">Mâm đặc sản</option></select></div>
+
+        <div class="panel-divider"></div>
+        <div class="section-kicker">02 / TÙY CHỈNH NHẸ</div>
+        <div class="control-grid">
+          <div class="field"><label for="people-count">Số người ăn</label><div class="stepper"><button id="people-minus" type="button" aria-label="Giảm số người">−</button><input id="people-count" aria-label="Số người" type="number" min="1" max="20" value="4" inputmode="numeric"><button id="people-plus" type="button" aria-label="Tăng số người">+</button></div></div>
+          <div class="field"><label for="meal-size">Quy mô bữa</label><select id="meal-size"><option value="auto">Tự động</option><option value="compact">Gọn nhẹ</option><option value="normal">Vừa đủ</option><option value="hearty">Thịnh soạn</option></select></div>
+          <div class="field span-full"><label for="cooking-time">Thời gian nấu</label><select id="cooking-time"><option value="any">Không giới hạn</option><option value="30">Dưới 30 phút</option><option value="60">30–60 phút (tối đa 60)</option><option value="over60">Trên 60 phút</option></select></div>
+        </div>
+
+        <details class="advanced-settings" id="advanced-settings"><summary><span>⚙</span> Tùy chọn thực phẩm <span class="summary-count" id="excluded-count">0 đã chọn</span></summary><div class="advanced-inner"><label class="toggle-line"><input id="vegetarian-check" type="checkbox"><span>Ăn chay (không thành phần động vật)</span></label><p class="field-caption">Không dùng các nguyên liệu sau:</p><div id="excluded-foods" class="exclude-grid"></div><small class="muted-note">Bộ lọc dựa trên nguyên liệu đã khai báo. Nếu bị dị ứng nghiêm trọng, hãy tự kiểm tra nguyên liệu thực tế.</small></div></details>
+
+        <button id="generate-button" class="primary-button" type="button"><span>✦</span> Gợi ý bữa ăn <span aria-hidden="true">→</span></button>
+        <p class="panel-footnote">Không tài khoản · Không quảng cáo · Không giới hạn ngân sách</p>
+      </aside>
+
+      <section class="results-panel" aria-labelledby="result-heading">
+        <div class="result-head">
+          <div><div class="section-kicker">THỰC ĐƠN DÀNH CHO BẠN</div><h2 id="result-heading">Mâm cơm <em>hôm nay</em></h2><p id="result-subtitle" class="result-subtitle">Một chút ngẫu hứng, rất nhiều vị ngon.</p></div>
+          <span id="result-status" class="result-status"><span class="status-dot"></span> ĐÃ SẴN SÀNG</span>
+        </div>
+        <div id="result-alert" class="result-alert hidden" role="alert"></div>
+        <div id="result-summary" class="result-summary hidden" aria-live="polite"></div>
+        <div id="dish-list" class="dish-list" aria-live="polite" aria-relevant="additions text"></div>
+        <div id="result-empty" class="result-empty"><div class="empty-icon">🍽️</div><h3>Đang chuẩn bị mâm cơm...</h3><p>Nhấn “Gợi ý bữa ăn” để bắt đầu nhé!</p></div>
+        <div id="result-actions" class="result-actions hidden">
+          <button class="action-button action-primary" type="button" data-action="reroll">↻ <span>Đổi món chưa khóa</span></button>
+          <button class="action-button" type="button" data-action="reroll-all">⤨ <span>Random tất cả</span></button>
+          <button class="action-button" type="button" data-action="unlock-all">♧ <span>Mở khóa</span></button>
+        </div>
+        <div id="result-tools" class="result-tools hidden">
+          <button type="button" data-action="save">♡ <span>Lưu thực đơn</span></button>
+          <button type="button" data-action="shopping">▤ <span>Đi chợ</span></button>
+          <button type="button" data-action="share">↗ <span>Chia sẻ</span></button>
+        </div>
+        <div id="nutrition-card" class="nutrition-card hidden"></div>
+      </section>
+    </section>
+
+    <section class="explore-teaser" id="kham-pha">
+      <div><div class="section-kicker">MỘT CHÚT CẢM HỨNG</div><h2>Kho món Bắc <em>thật phong phú.</em></h2><p id="dish-total-description">Từ món bình dị đến mâm cỗ thịnh soạn, có nhiều thứ để thử.</p></div>
+      <button type="button" id="explore-bottom" class="outline-button">Khám phá món ăn <span aria-hidden="true">↗</span></button>
+    </section>
+    <section class="how-it-works" aria-label="Cách sử dụng">
+      <div class="how-card"><span>01</span><strong>Chọn kiểu bữa</strong><p>Cơm nhà, cải thiện, tụ họp hay ăn nhanh.</p></div>
+      <div class="how-card"><span>02</span><strong>Nhấn gợi ý</strong><p>Hệ thống ghép món từ kho dữ liệu phong phú.</p></div>
+      <div class="how-card"><span>03</span><strong>Khóa & đổi món</strong><p>Giữ món thích, random những món còn lại.</p></div>
+    </section>
+  </main>
+  <footer class="container footer"><div><strong>🍲 Hôm Nay Ăn Gì?</strong><p>Một chút vị Bắc trong mỗi bữa cơm.</p></div><span>Gợi ý thực phẩm mang tính tham khảo · Không phải tư vấn dinh dưỡng cá nhân.</span></footer>
+
+  <dialog id="app-dialog" class="app-dialog" aria-labelledby="dialog-heading">
+    <div class="dialog-layout"><div class="dialog-head"><div><div class="section-kicker" id="dialog-kicker">THƯ VIỆN CỦA BẠN</div><h2 id="dialog-heading">Khám phá</h2></div><button id="dialog-close" class="dialog-close" type="button" aria-label="Đóng">×</button></div><div id="dialog-content" class="dialog-content"></div></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
